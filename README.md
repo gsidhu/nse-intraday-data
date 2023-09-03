@@ -2,6 +2,12 @@
 
 This repository contains intraday data for Nifty and Bank Nifty at a one-minute timeframe, organized by year, month, and day. The data is intended for use in backtesting trading strategies.
 
+## About Unofficed Community
+
+This tool has been developed to cater to the needs of the [Unofficed](https://www.unofficed.com/)  community. Unofficed is a vibrant community of traders, developers, and enthusiasts passionate about financial markets and trading strategies.
+
+Visit the [Unofficed Community Chat](https://www.unofficed.com/chat/) to engage in discussions, share insights, and collaborate with fellow members. Join the community to explore a wealth of knowledge and resources related to trading and financial markets.
+
 ## Folder Structure
 
 The data is organized in the following folder structure:
