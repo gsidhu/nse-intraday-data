@@ -1,4 +1,4 @@
-name: Copy and Rename BANKNIFTY Files in Batches
+name: Copy and Rename INDIAVIX Files in Batches
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:     # allow manual trigger
 
 jobs:
-  copy-banknifty-files:
+  copy-indiavix-files:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,17 +15,17 @@ jobs:
         with:
           fetch-depth: 1   # only fetch latest commit
 
-      - name: Copy and rename all BANKNIFTY.txt files in batches
+      - name: Copy and rename all INDIAVIX.txt files in batches
         run: |
-          mkdir -p banknifty_files
+          mkdir -p indiavix_files
           batch_size=500
           counter=0
           batch=1
 
-          find . -type f -name "BANKNIFTY.txt" | sort | while read file; do
+          find . -type f -name "INDIAVIX.txt" | sort | while read file; do
             # Start a new batch folder when counter is 0
             if [ $counter -eq 0 ]; then
-              batch_dir="banknifty_files/banknifty_files_$batch"
+              batch_dir="indiavix_files/indiavix_files_$batch"
               mkdir -p "$batch_dir"
             fi
 
@@ -47,6 +47,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add banknifty_files
-          git commit -m "Auto-copy and rename BANKNIFTY.txt files in batches of 500" || echo "No changes to commit"
+          git add indiavix_files
+          git commit -m "Auto-copy and rename INDIAVIX.txt files in batches of 500" || echo "No changes to commit"
           git push
