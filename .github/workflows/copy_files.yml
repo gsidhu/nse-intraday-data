@@ -1,4 +1,4 @@
-name: Copy and Rename SENSEX Files in Batches
+name: Copy and Rename NIFTYFINSERVICE Files in Batches
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:     # allow manual trigger
 
 jobs:
-  copy-sensex-files:
+  copy-niftyfinservice-files:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,17 +15,17 @@ jobs:
         with:
           fetch-depth: 1   # only fetch latest commit
 
-      - name: Copy and rename all SENSEX.txt files in batches
+      - name: Copy and rename all NIFTYFINSERVICE.txt files in batches
         run: |
-          mkdir -p sensex_files
+          mkdir -p niftyfinservice_files
           batch_size=500
           counter=0
           batch=1
 
-          find . -type f -name "SENSEX.txt" | sort | while read file; do
+          find . -type f -name "NIFTYFINSERVICE.txt" | sort | while read file; do
             # Start a new batch folder when counter is 0
             if [ $counter -eq 0 ]; then
-              batch_dir="sensex_files/sensex_files_$batch"
+              batch_dir="niftyfinservice_files/niftyfinservice_files_$batch"
               mkdir -p "$batch_dir"
             fi
 
@@ -47,6 +47,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add sensex_files
-          git commit -m "Auto-copy and rename SENSEX.txt files in batches of 500" || echo "No changes to commit"
+          git add niftyfinservice_files
+          git commit -m "Auto-copy and rename NIFTYFINSERVICE.txt files in batches of 500" || echo "No changes to commit"
           git push
